@@ -3,439 +3,54 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Годовой разбор — Татьяна Шумихина</title>
+<title>Гороскоп на год — Разбор и Астро-Коучинг</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%2225%22 fill=%22%23D4A84B%22/></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Forum&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --beige:        #FAF3EA;
-    --plum:         #1A1A1A;
-    --plum-bg:      #2A0E26;
-    --cream:        #F5EDE4;
-    --gold:         #D4A84B;
-    --gold-bright:  #E2B84C;
-    --gold-deep:    #B8923A;
-    --line:         rgba(212, 168, 75, 0.5);
-  }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; }
-  body {
-    font-family: 'Forum', Georgia, serif;
-    font-weight: 400;
-    background: var(--beige);
-    color: var(--plum);
-    line-height: 1.55;
-    -webkit-font-smoothing: auto;
-    -moz-osx-font-smoothing: auto;
-  }
-
-  /* HERO — PLUM */
-  .hero {
-    background: var(--plum-bg);
-    color: var(--cream);
-    padding: 70px 32px 64px;
-  }
-  .hero-inner { max-width: 680px; margin: 0 auto; }
-  .eyebrow {
-    font-family: 'Cormorant Garamond', serif;
-    font-style: italic;
-    font-size: 14px;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--gold-bright);
-    margin-bottom: 22px;
-  }
-  .eyebrow .price { color: var(--gold); font-weight: 500; }
-  h1 {
-    font-family: 'Forum', serif;
-    font-weight: 400;
-    font-size: clamp(34px, 4.5vw, 50px);
-    line-height: 1.12;
-    color: var(--cream);
-    margin-bottom: 28px;
-  }
-  .intro {
-    font-family: 'Forum', Georgia, serif;
-    font-size: 21px;
-    line-height: 1.6;
-    color: var(--cream);
-    max-width: 580px;
-  }
-  .intro em { color: var(--gold-bright); font-style: italic; }
-
-  /* CONTENT — BEIGE */
-  .content { background: var(--beige); padding: 50px 32px 60px; }
-  .content-inner { max-width: 680px; margin: 0 auto; }
-
-  .section { padding: 28px 0; border-top: 2px solid var(--gold); }
-  .section.last { border-bottom: 2px solid var(--gold); }
-  .kicker {
-    font-family: 'Cormorant Garamond', serif;
-    font-style: italic;
-    font-size: 14px;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 18px;
-  }
-  .lead {
-    font-family: 'Forum', Georgia, serif;
-    font-size: 19px;
-    line-height: 1.6;
-    color: var(--plum);
-    margin-bottom: 14px;
-  }
-  .lead.italic { font-style: italic; }
-  .lead strong { color: var(--gold-deep); font-weight: 600; }
-
-  .dash-list { list-style: none; padding: 0; margin-top: 8px; }
-  .dash-list li {
-    display: flex;
-    gap: 16px;
-    padding: 14px 0;
-    border-bottom: 1px solid var(--line);
-    font-family: 'Forum', Georgia, serif;
-    font-size: 19px;
-    line-height: 1.5;
-    color: var(--plum);
-  }
-  .dash-list li:last-child { border-bottom: none; }
-  .dash-list li::before {
-    content: "—";
-    color: var(--gold);
-    font-family: 'Forum', serif;
-    font-size: 22px;
-    font-weight: 700;
-    flex-shrink: 0;
-    margin-top: -1px;
-  }
-
-  /* TWO YEARS BLOCKS */
-  .year-block { margin-top: 22px; padding: 22px 0 4px; }
-  .year-block + .year-block {
-    margin-top: 14px;
-    padding-top: 22px;
-    border-top: 1px dashed var(--line);
-  }
-  .year-block h3 {
-    font-family: 'Forum', serif;
-    font-size: 26px;
-    font-weight: 400;
-    color: var(--plum);
-    margin-bottom: 12px;
-    line-height: 1.2;
-  }
-  .year-block h3 em {
-    font-family: 'Forum', Georgia, serif;
-    font-style: italic;
-    color: var(--gold);
-  }
-
-  /* FORMATS */
-  .formats {
-    background: var(--beige);
-    padding: 20px 32px 60px;
-  }
-  .formats-inner { max-width: 680px; margin: 0 auto; }
-  .formats-head { text-align: center; margin-bottom: 32px; }
-  .formats-head .kicker { color: var(--gold-deep); margin-bottom: 12px; }
-  .formats-head h2 {
-    font-family: 'Forum', serif;
-    font-size: clamp(26px, 3vw, 34px);
-    font-weight: 400;
-    color: var(--plum);
-    margin-bottom: 12px;
-  }
-  .formats-sep {
-    width: 60px; height: 2.5px;
-    background: var(--gold);
-    margin: 0 auto;
-  }
-
-  .format-card {
-    border: 1px solid rgba(168, 133, 63, 0.4);
-    border-radius: 14px;
-    padding: 28px 26px;
-    margin-bottom: 16px;
-    background: var(--plum-bg);
-    color: var(--cream);
-    transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
-    position: relative;
-  }
-  .format-card:hover {
-    border-color: var(--gold);
-    box-shadow: 0 6px 20px rgba(42, 14, 38, 0.18);
-    transform: translateY(-2px);
-  }
-  .format-card.premium {
-    border: 1.5px solid var(--gold);
-    background: linear-gradient(135deg, #2A0E26 0%, #3A1635 50%, #2A0E26 100%);
-    box-shadow: 0 8px 26px rgba(42, 14, 38, 0.25);
-  }
-  .format-card.premium::before {
-    content: "";
-    position: absolute;
-    top: -1px; left: -1px; right: -1px;
-    height: 3px;
-    background: linear-gradient(90deg, transparent, var(--gold), transparent);
-    border-radius: 14px 14px 0 0;
-  }
-  .format-card.premium .format-title { color: var(--gold-bright); }
-  .format-card.premium .format-price { font-size: 28px; font-weight: 700; }
-  .format-badge {
-    font-family: 'Cormorant Garamond', serif;
-    font-style: italic;
-    font-size: 13px;
-    color: var(--gold-bright);
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    margin-bottom: 8px;
-    display: block;
-  }
-  .format-title {
-    font-family: 'Forum', serif;
-    font-size: 24px;
-    color: var(--cream);
-    margin-bottom: 10px;
-  }
-  .format-desc {
-    font-family: 'Forum', Georgia, serif;
-    font-size: 18px;
-    color: var(--cream);
-    margin-bottom: 14px;
-    line-height: 1.55;
-  }
-  .format-price {
-    font-family: 'Forum', Georgia, serif;
-    font-style: italic;
-    font-size: 24px;
-    color: var(--gold-bright);
-    font-weight: 600;
-  }
-
-  /* OBJECTION PULLQUOTE — PLUM */
-  .pullquote {
-    background: var(--plum-bg);
-    color: var(--cream);
-    padding: 64px 32px;
-    text-align: center;
-  }
-  .pullquote-inner {
-    max-width: 540px;
-    margin: 0 auto;
-  }
-  .pullquote-star {
-    font-family: 'Forum', serif;
-    font-size: 30px;
-    color: var(--gold-bright);
-    margin-bottom: 18px;
-    display: block;
-  }
-  .pq-quote {
-    font-family: 'Forum', Georgia, serif;
-    font-style: italic;
-    font-size: clamp(21px, 2.2vw, 26px);
-    line-height: 1.45;
-    color: var(--cream);
-    margin-bottom: 26px;
-  }
-  .pq-answer {
-    font-family: 'Forum', Georgia, serif;
-    font-size: clamp(19px, 2vw, 22px);
-    line-height: 1.55;
-    color: var(--cream);
-  }
-  .pq-answer .first-word {
-    color: var(--gold-bright);
-    font-style: italic;
-    display: inline-block;
-    margin-bottom: 8px;
-    font-size: clamp(20px, 2vw, 24px);
-  }
-  .pq-answer em { font-style: italic; color: var(--gold-bright); }
-
-  /* CTA — PLUM */
-  .cta {
-    background: var(--plum-bg);
-    color: var(--cream);
-    padding: 64px 32px 72px;
-    text-align: center;
-  }
-  .cta-star {
-    font-family: 'Forum', serif;
-    font-size: 28px;
-    color: var(--gold-bright);
-    margin-bottom: 22px;
-    display: block;
-  }
-  .cta-hook {
-    font-family: 'Forum', serif;
-    font-size: clamp(22px, 2.5vw, 28px);
-    color: var(--cream);
-    line-height: 1.3;
-    max-width: 480px;
-    margin: 0 auto 32px;
-  }
-  .cta-button {
-    display: inline-block;
-    background: var(--gold);
-    color: var(--plum);
-    font-family: 'Forum', serif;
-    font-size: 16px;
-    letter-spacing: 0.12em;
-    padding: 18px 48px;
-    border: 1px solid var(--gold);
-    border-radius: 999px;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    box-shadow: 0 8px 26px rgba(212, 168, 75, 0.32);
-  }
-  .cta-button:hover {
-    background: transparent;
-    color: var(--gold-bright);
-    transform: translateY(-1px);
-    box-shadow: 0 12px 32px rgba(200, 169, 107, 0.32);
-  }
-  .cta-sub {
-    margin-top: 20px;
-    font-family: 'Forum', Georgia, serif;
-    font-style: italic;
-    font-size: 15px;
-    color: var(--cream);
-    opacity: 0.55;
-  }
-
-  @media (max-width: 640px) {
-    .hero { padding: 50px 22px 46px; }
-    .content { padding: 36px 22px 44px; }
-    .formats { padding: 14px 22px 44px; }
-    .pullquote { padding: 50px 22px; }
-    h1 { font-size: 30px; }
-    .intro { font-size: 19px; }
-    .dash-list li { font-size: 17px; padding: 12px 0; }
-    .lead { font-size: 17px; }
-    .year-block h3 { font-size: 22px; }
-    .format-card { padding: 22px 18px; }
-    .cta { padding: 50px 22px 60px; }
-    .cta-button { padding: 16px 36px; font-size: 15px; }
-  }
-</style>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght=400;700;800;900&display=swap" rel="stylesheet">
+<style>:root{--beige:#FAF3EA;--plum:#2A0E26;--gold:#D4A84B;--gold-glow:rgba(212, 168, 75, 0.4)}*{box-sizing:border-box;margin:0;padding:0}body{background-color:var(--beige);color:var(--plum);font-family:'Inter',-apple-system,BlinkMacSystemFont,Arial,sans-serif;line-height:1.4;-webkit-font-smoothing:antialiased;display:flex;justify-content:center}.phone-container{width:100%;max-width:450px;background:var(--beige);padding:45px 24px 60px 24px;text-align:center}.brand-header{margin-bottom:25px;position:relative;display:inline-block}.main-title{font-size:36px;font-weight:900;text-transform:uppercase;color:var(--plum);letter-spacing:2px;line-height:1.1;margin-bottom:4px;white-space:nowrap}.title-accent-line{width:40px;height:3px;background-color:var(--gold);margin:8px auto 0 auto;border-radius:2px}.house-art-container{display:flex;justify-content:center;align-items:center;margin:10px auto 35px auto;width:180px;height:180px;position:relative}.luxury-house-svg{width:100%;height:100%;fill:none;stroke:var(--plum);stroke-width:1;stroke-linecap:round;stroke-linejoin:round}.gold-element{stroke:var(--gold);stroke-width:0.9}.gold-dash{stroke:var(--gold);stroke-width:0.8;stroke-dasharray:3 2}.thick-gold{stroke:var(--gold);stroke-width:1.8}.section-subtitle{font-size:24px;font-weight:800;line-height:1.2;color:var(--plum);margin:35px 0 20px 0;text-align:left}.section-subtitle.first{margin-top:5px;white-space:nowrap}.questions-list{list-style:none;padding:0;margin:0 0 35px 0}.questions-list li{font-size:15.5px;font-weight:700;line-height:1.45;color:var(--plum);margin-bottom:16px;padding-left:24px;position:relative;text-align:left}.questions-list li::before{content:"•";position:absolute;left:3px;top:-1px;color:var(--gold);font-size:22px;line-height:1}.price-section{margin-bottom:20px;text-align:left}.price-card{background-color:rgba(42, 14, 38, 0.04);border:1px solid var(--gold);border-radius:18px;padding:22px 20px;margin-bottom:24px;display:flex;flex-direction:column}.price-card .card-button{display:block;width:100%;text-align:center;background-color:var(--plum);color:var(--beige);font-size:14px;font-weight:800;text-transform:uppercase;letter-spacing:1px;text-decoration:none;padding:14px 15px;border:1px solid transparent;border-radius:25px;transition:all 0.3s ease;box-shadow:0 4px 10px rgba(42, 14, 38, 0.1)}.price-card .card-button:hover,.price-card .card-button:active{background-color:#3d1738}.price-card.premium{background-color:var(--plum);border:2px solid var(--gold);border-radius:18px;padding:24px 20px 22px 20px;position:relative;box-shadow:0 10px 25px rgba(42, 14, 38, 0.25)}.badge{position:absolute;top:-11px;right:20px;background-color:var(--gold);color:var(--plum);font-size:11px;font-weight:800;text-transform:uppercase;padding:2px 12px;border-radius:12px;letter-spacing:0.5px}.price-header{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:8px}.price-title{font-size:18px;font-weight:800}.price-card:not(.premium) .price-title{color:var(--plum)}.price-card:not(.premium) .price-value{color:var(--plum)}.price-card:not(.premium) .price-desc{color:rgba(42, 14, 38, 0.85)}.price-card.premium .price-title{color:var(--beige)}.price-card.premium .price-value{color:var(--gold)}.price-card.premium .price-desc{color:rgba(250, 243, 234, 0.9)}.price-value{font-size:24px;font-weight:900;white-space:nowrap}.price-desc{font-size:14.5px;font-weight:400;line-height:1.5;margin-bottom:20px}.price-card.premium .card-button{display:block;width:100%;text-align:center;background-color:var(--gold);color:var(--plum);font-size:14px;font-weight:800;text-transform:uppercase;letter-spacing:1px;text-decoration:none;padding:14px 15px;border:1px solid var(--gold);border-radius:25px;transition:all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);box-shadow:0 4px 12px rgba(0, 0, 0, 0.15);animation:premium-pulse 2.5s infinite ease-in-out}.price-card.premium .card-button:hover,.price-card.premium .card-button:active{background-color:#e5bd63;border-color:#e5bd63;transform:translateY(-1.5px);box-shadow:0 6px 18px rgba(212, 168, 75, 0.4)}@keyframes premium-pulse{0%{box-shadow:0 4px 12px rgba(0, 0, 0, 0.15),0 0 0 0 rgba(212, 168, 75, 0.3)}50%{box-shadow:0 6px 16px rgba(0, 0, 0, 0.2),0 0 10px 4px rgba(212, 168, 75, 0.5)}100%{box-shadow:0 4px 12px rgba(0, 0, 0, 0.15),0 0 0 0 rgba(212, 168, 75, 0.3)} }@media(max-width:380px){.main-title{font-size:26px;letter-spacing:1px}.section-subtitle{font-size:19px}.questions-list li{font-size:14.2px}.card-button{font-size:12px;padding:12px 10px}}</style>
 </head>
 <body>
+  <div class="phone-container">
+    <div class="brand-header"><h1 class="main-title">Гороскоп на год</h1><div class="title-accent-line"></div></div>
+    
+    <div class="house-art-container">
+      <svg class="luxury-house-svg" viewBox="0 0 200 200">
+        <circle cx="100" cy="100" r="94" class="thick-gold" /><circle cx="100" cy="100" r="90" /><circle cx="100" cy="100" r="86" class="gold-dash" /><path d="M100 6v4M100 190v4M10 100h4M190 100h4" class="gold-element" /><circle cx="100" cy="100" r="76" class="gold-element" /><path d="M100 28v144M28 100h144" /><path d="M45 45l110 110M45 155l110-110" class="gold-dash" />
+        <circle cx="100" cy="100" r="20" class="gold-element" stroke-width="1.5" fill="none" />
+        <path d="M100 65v10M100 125v10M65 100h10M125 100h10M75 75l7 7M118 118l7 7M75 125l7-7M118 82l7-7" class="gold-element" stroke-width="1.2" />
+        <circle cx="100" cy="100" r="4" fill="var(--gold)" stroke="none" />
+        <path d="M140 60l1 3 3 1-3 1-1 3-1-3-3-1 3-1z" fill="var(--plum)" stroke="none" />
+        <path d="M55 135l1 2 2 1-2 1-1 2-1-2-2-1 2-1z" fill="var(--gold)" stroke="none" />
+      </svg>
+    </div>
 
-<!-- HERO -->
-<header class="hero">
-  <div class="hero-inner">
-    <div class="eyebrow">Годовой разбор <span class="price">· от 150 €</span></div>
-    <h1>Ваш год —<br>как карта местности</h1>
-    <p class="intro">Не «как получится». А с <em>навигатором</em> — где у вас сильные периоды. Куда вкладываться. И где главное — не давить и не ломать себя.</p>
-  </div>
-</header>
+    <h2 class="section-subtitle first">Что даст вам этот прогноз:</h2>
+    <ul class="questions-list">
+      <li>Общая характеристика года и ваши ключевые психологические потребности в этот период.</li>
+      <li>Самые яркие и важные события жизни, которые вас ожидают, и точные сроки, когда они произойдут.</li>
+      <li>Подробные тенденции в основных сферах: брак и личная жизнь, работа, карьера, деньги, имущество, дети и здоровье.</li>
+      <li>Понимание того, в каких сферах будет напряжение, где судьба потребует терпения, а где события будут бить ключом.</li>
+      <li>Вектор главных астрологических событий — Солнечных и Лунных Затмений, и то, как именно они проиграются в вашей судьбе.</li>
+      <li>Точные периоды «благословения» для продвижения вперед, улучшения в карьере и укрепления вашего социального статуса.</li>
+      <li>Знание, когда нужно замедлиться, переждать возможные препятствия и не предпринимать активных действий.</li>
+      <li>Предупреждения о возможных периодах кризисов, недомоганий или проблем, к которым нужно подготовиться заранее.</li>
+      <li>Главное обещание года: изменится ли ваша жизнь радикально, и ждёт ли вас начало совершенно нового жизненного этапа.</li>
+    </ul>
 
-<!-- CONTENT -->
-<main class="content">
-  <div class="content-inner">
-
-    <section class="section">
-      <div class="kicker">— Зачем разбор —</div>
-      <p class="lead">Можно идти по году вслепую. Как по тёмному лесу: ямы, повороты, риск свернуть не туда.</p>
-      <p class="lead">А можно — <strong>с фарами.</strong></p>
-      <p class="lead italic">Когда видите дорогу — вы управляете. Не выживаете.</p>
-      <p class="lead" style="margin-top:18px;">Разбор показывает:</p>
-      <ul class="dash-list">
-        <li>где ваши сильные периоды</li>
-        <li>куда стоит вкладываться</li>
-        <li>где лучше не давить и не ломать себя</li>
-      </ul>
-    </section>
-
-    <section class="section">
-      <div class="kicker">— Годы бывают разные —</div>
-
-      <div class="year-block">
-        <h3>Сильные годы — <em>когда нужен рывок</em></h3>
-        <p class="lead">Включается драйв. Энергия. Амбиции. Желание идти.</p>
-        <p class="lead">В такие периоды важно не «переждать». А <strong>рвануть</strong>: брать возможности, действовать, расти.</p>
-        <p class="lead">И понимать чётко — в какой именно сфере. Работа. Бизнес. Отношения.</p>
+    <div class="price-section">
+      <div class="price-card">
+        <div class="price-header"><div class="price-title">Голосовой разбор</div><div class="price-value">150 €</div></div>
+        <div class="price-desc">Голосовой разбор 40 минут по пунктам, без обратной связи.</div>
+        <a href="https://t.me/astrolog_prognozi?text=%D0%94%D0%BE%D0%B1%D1%80%D1%8B%D0%B9%20%D0%B4%D0%B5%D0%BD%D1%8C.%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%B3%D0%BE%D0%BB%D0%BE%D1%81%D0%BE%D0%B2%D0%BE%D0%B9%20%D1%80%D0%B0%D0%B7%D0%B1%D0%BE%D1%80%20%D0%B3%D0%BE%D1%80%D0%BE%D1%81%D0%BA%D0%BE%D0%BF%D0%B0%20%D0%BD%D0%B0%20%D0%B3%D0%BE%D0%B4%20%D0%B7%D0%B0%20150%20%D0%B5%D0%B2%D1%80%D0%BE" class="card-button">Выбрать этот вариант</a>
       </div>
-
-      <div class="year-block">
-        <h3>Спокойные годы — <em>когда нужна пауза</em></h3>
-        <p class="lead">Когда лучше замедлиться. Уделить внимание телу, состоянию, себе.</p>
-        <p class="lead">Если этого не знать — можно требовать от себя рывка там, где время на восстановление.</p>
-        <p class="lead">Или наоборот — упустить сильный год, потому что побоялись.</p>
+      <div class="price-card premium">
+        <div class="badge">Рекомендую</div>
+        <div class="price-header"><div class="price-title">Разбор + коуч-сессия</div><div class="price-value">200 €</div></div>
+        <div class="price-desc">Голосовой разбор 40 минут + живой созвон (1 час).<br>Инструмент для тех, кто привык забирать от жизни своё. Мы соединим сухой астрологический расчёт с коучингом: уберём страх масштаба, оцифруем ваши скрытые блоки, нейтрализуем финансовые риски и превратим кризисные периоды года в сильные точки роста для вашего бизнеса, дохода и статуса.</div>
+        <a href="https://t.me/astrolog_prognozi?text=%D0%94%D0%BE%D0%B1%D1%80%D1%8B%D0%B9%20%D0%B4%D0%B5%D0%BD%D1%8C.%20%D0%A5%D0%BE%D1%87%D1%83%20%D1%80%D0%B0%D0%B7%D0%B1%D0%BE%D1%80%20%D0%B3%D0%BE%D1%80%D0%BE%D1%81%D0%BA%D0%BE%D0%BF%D0%B0%20%D0%BD%D0%B0%20%D0%B3%D0%BE%D0%B4%20%D1%81%20%D0%BA%D0%BE%D1%83%D1%87%D0%B5%D0%BC" class="card-button">Выбрать этот вариант</a>
       </div>
-    </section>
-
-    <section class="section">
-      <div class="kicker">— Если есть планы —</div>
-      <p class="lead">Если у вас уже есть цели и планы — разбор становится ещё ценнее.</p>
-      <p class="lead">Вы озвучиваете — и мы смотрим: <strong>подходит ли этот год</strong> для их реализации.</p>
-      <p class="lead">Где стоит идти в это сейчас. А где разумнее перенести — чтобы не тратить силы впустую.</p>
-    </section>
-
-    <section class="section last">
-      <div class="kicker">— В разборе —</div>
-      <ul class="dash-list">
-        <li>ключевые темы года</li>
-        <li>деньги и реализация</li>
-        <li>здоровье</li>
-        <li>личная жизнь</li>
-        <li>помесячно: когда действовать, а когда — не спешить</li>
-      </ul>
-    </section>
-
-  </div>
-</main>
-
-<!-- OBJECTION -->
-<section class="pullquote">
-  <div class="pullquote-inner">
-    <span class="pullquote-star">✦</span>
-    <p class="pq-quote">«Я люблю жить в потоке.<br>Пусть всё происходит само собой.»</p>
-    <p class="pq-answer">
-      <span class="first-word">Можно и так.</span><br>
-      У этого есть цена.<br><br>
-      Есть моменты, когда вы делаете ключевые шаги: переезд, крупная покупка, новая работа, отношения.<br>
-      В эти моменты «плыть по течению» — <em>значит ставить на удачу.</em><br><br>
-      Разбор показывает эти точки заранее.<br>
-      Чтобы важное — вы делали в свой момент.<br>А не наугад.
-    </p>
-  </div>
-</section>
-
-<!-- FORMATS -->
-<section class="formats">
-  <div class="formats-inner">
-    <div class="formats-head">
-      <div class="kicker">— Форматы —</div>
-      <h2>Как работаем</h2>
-      <div class="formats-sep"></div>
-    </div>
-
-    <div class="format-card">
-      <div class="format-title">Годовой разбор</div>
-      <div class="format-desc">Голосовой разбор без обратной связи. Темы года, помесячный план, рекомендации. Можно переслушивать.</div>
-      <div class="format-price">150 €</div>
-    </div>
-
-    <div class="format-card premium">
-      <span class="format-badge">Рекомендую</span>
-      <div class="format-title">Годовой разбор + созвон</div>
-      <div class="format-desc">Голосовой разбор + встреча. Ваши вопросы по каждому периоду — мои ответы. Уточняем планы и решения.</div>
-      <div class="format-price">200 €</div>
     </div>
   </div>
-</section>
-
-<!-- CTA -->
-<div class="cta">
-  <span class="cta-star">✦</span>
-  <p class="cta-hook">Зову ту, кто хочет прожить год —<br>не «как получится».<br>А со своим годом в руках.</p>
-  <a href="https://t.me/astrolog_prognozi?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D1%85%D0%BE%D1%87%D1%83%20%D0%B3%D0%BE%D0%B4%D0%BE%D0%B2%D0%BE%D0%B9%20%D1%80%D0%B0%D0%B7%D0%B1%D0%BE%D1%80.%20%D0%9C%D0%B5%D0%BD%D1%8F%20%D0%B7%D0%BE%D0%B2%D1%83%D1%82.." class="cta-button" target="_blank" rel="noopener">Заказать разбор</a>
-  <p class="cta-sub">от 150 € · два формата</p>
-</div>
-
 </body>
 </html>
